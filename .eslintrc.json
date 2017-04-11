@@ -1,0 +1,18 @@
+{
+  "env": {
+    "jest": true
+  },
+  "extends": [
+    "react-app"
+  ],
+  "plugins": [
+    "flowtype",
+    "compat"
+  ],
+  "rules": {
+    "compat/compat": 2
+  },
+  "settings": {
+    "polyfills": ["fetch"]
+  }
+}
