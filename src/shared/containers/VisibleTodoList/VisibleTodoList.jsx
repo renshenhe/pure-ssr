@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { toggleTodo } from '../../state/todos/actions';
 import TodoList from '../../components/TodoList/TodoList';
 
-const getVisibleTodos = (todos: Array<string>, filter) => {
+const getVisibleTodos = (todos: Array<string>, filter: string) => {
   switch (filter) {
     case 'SHOW_ALL':
       return todos;

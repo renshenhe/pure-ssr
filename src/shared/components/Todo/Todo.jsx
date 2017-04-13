@@ -1,6 +1,14 @@
+// @flow
+
 import React from 'react';
 
-const Todo = ({ onClick, completed, text }) => (
+type Props = {
+  onClick: Function,
+  completed: bool,
+  text: string,
+};
+
+const Todo = ({ onClick, completed, text }: Props) => (
   <li
     onClick={onClick}
     style={{

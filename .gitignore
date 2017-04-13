@@ -2,5 +2,5 @@
 node_modules
 /*.log
 /coverage/
-/lib/
+/build/
 /dist/

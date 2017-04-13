@@ -1,6 +1,14 @@
+// @flow
+
 import React from 'react';
 
-const Link = ({ active, children, onClick }) => {
+type Props = {
+  active: bool,
+  children: any,
+  onClick: Function,
+};
+
+const Link = ({ active, children, onClick }: Props) => {
   if (active) {
     return <span>{children}</span>
   }

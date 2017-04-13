@@ -11,16 +11,16 @@ export const selectSubreddit = subreddit => ({ type: SELECT_SUBREDDIT, subreddit
 
 export const invalidateSubreddit = subreddit => ({ type: INVALIDATE_SUBREDDIT, subreddit });
 
-const requestPosts = subreddit => ({ type: REQUEST_POSTS, subreddit });
+export const requestPosts = subreddit => ({ type: REQUEST_POSTS, subreddit });
 
-const receivePosts = (subreddit, json) => ({
+export const receivePosts = (subreddit, json) => ({
   type: RECEIVE_POSTS,
   posts: json.data.children.map(child => child.data),
   receivedAt: Date.now(),
   subreddit,
 });
 
-const fetchPosts = subreddit => dispatch => {
+export const fetchPosts = subreddit => dispatch => {
   dispatch(requestPosts(subreddit));
 
   return fetch(`https://www.reddit.com/r/${subreddit}.json`)
@@ -28,7 +28,7 @@ const fetchPosts = subreddit => dispatch => {
     .then(json => dispatch(receivePosts(subreddit, json)))
 };
 
-const shouldFetchPosts = (state, subreddit) => {
+export const shouldFetchPosts = (state, subreddit) => {
   const posts = state.postsBySubreddit[subreddit];
 
   if (!posts) {

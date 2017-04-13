@@ -1,8 +1,10 @@
+// @flow
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../../state/todos/actions';
 
-const AddTodo = ({ dispatch }) => {
+const AddTodo = ({ dispatch }: { dispatch: Function }) => {
   let input;
 
   return (

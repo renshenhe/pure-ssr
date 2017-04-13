@@ -1,6 +1,6 @@
 {
   "name": "pure-ssr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React server side rendering boilerplate",
   "main": "index.js",
   "repository": "https://github.com/renshenhe/pure-ssr.git",
@@ -9,7 +9,14 @@
   "scripts": {
     "start": "yarn dev:start",
     "dev:start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
-    "dev:wds": "webpack-dev-server --progress"
+    "dev:wds": "webpack-dev-server --progress",
+    "prod:build": "rimraf lib && babel src -d build --ignore .test.js",
+    "prod:start": "cross-env NODE_ENV=production pm2 start build/server && pm2 logs",
+    "prod:stop": "pm2 delete server",
+    "lint": "eslint src",
+    "test": "eslint src && flow && jest --coverage",
+    "precommit": "yarn test",
+    "prepush": "yarn test"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
@@ -31,7 +38,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
-    "babel-eslint": "^7.2.1",
+    "babel-eslint": "^7.2.2",
     "babel-jest": "^19.0.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -43,6 +50,18 @@
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^4.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-react-app": "^0.6.2",
+    "eslint-plugin-flowtype": "^2.30.4",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "fetch-mock": "^5.10.0",
+    "flow-bin": "^0.43.1",
+    "jest": "^19.0.2",
+    "pm2": "^2.4.4",
+    "redux-mock-store": "^1.2.3",
     "rimraf": "^2.6.1",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"

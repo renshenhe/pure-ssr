@@ -1,8 +1,15 @@
+// @flow
+
 import React from 'react';
 
 import Todo from '../Todo/Todo';
 
-const TodoList = ({ todos, onTodoClick }) => (
+type Props = {
+  todos: Array<any>,
+  onTodoClick: Function,
+};
+
+const TodoList = ({ todos, onTodoClick }: Props) => (
   <ul>
     { todos.map(todo =>
       <Todo

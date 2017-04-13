@@ -2,11 +2,16 @@
 
 import React from 'react';
 
+type Props = {
+  value: String,
+  onChange: Function,
+  options: Object,
+};
 const Picker = ({
   value,
   onChange,
   options,
-}) => (
+}: Props) => (
   <span>
     <h1>{value}</h1>
     <select

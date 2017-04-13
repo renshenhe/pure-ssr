@@ -1,6 +1,12 @@
+// @flow
+
 import React from 'react';
 
-const Posts = ({ posts }) => (
+type Props = {
+  posts: Array<any>,
+};
+
+const Posts = ({ posts }: Props) => (
   <ul>
     { posts.map((post, i) =>
       <li key={i}>{post.title}</li>

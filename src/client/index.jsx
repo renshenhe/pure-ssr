@@ -25,7 +25,7 @@ const store = createStore(
 
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR);
 
-const wrappedApp = (AppComponent, reduxStore) => (
+const wrappedApp = (AppComponent, reduxStore: ?Object) => (
   <Provider store={reduxStore}>
     <BrowserRouter>
       <AppContainer>
