@@ -3,7 +3,7 @@
 import path from 'path';
 import webpack from 'webpack';
 
-import { isProd, WDS_PORT } from './src/shared/config';
+import { isProd, WDS_PORT, WEB_PORT } from './src/shared/config';
 
 export default {
   entry: [
@@ -27,6 +27,9 @@ export default {
   devServer: {
     port: WDS_PORT,
     hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': `http://localhost:${WEB_PORT}`
+    },
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
